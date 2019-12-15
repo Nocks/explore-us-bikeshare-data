@@ -27,8 +27,8 @@ def get_filters():
     # HINT: Use a while loop to handle invalid inputs
     while True:
         city = input("\nWhich city (chicago, new york city, washington) " + \
-                     "would you want analysis for? ").strip()
-        if city.lower() in ['chicago', 'new york city', 'washington']:
+                     "would you want analysis for? ").strip().lower()
+        if city in ['chicago', 'new york city', 'washington']:
             print(f'\nOkay! You want analysis for {city.title()}.\n')
             break
         else:
@@ -40,8 +40,8 @@ def get_filters():
                      "Enter which month you want analysis on or 'all' " + \
                      "for analysis on all months. ")
     while True:
-        month = input(input_message).strip()
-        if month.lower() in MONTHS or month.lower() == 'all':
+        month = input(input_message).strip().lower()
+        if month in MONTHS or month.lower() == 'all':
             filter = "all months" if month.lower() == "all" else month.title()
             print(f'\nOkay! You want analysis for {filter}.\n')
             break
@@ -55,8 +55,8 @@ def get_filters():
                      "Enter which day you want analysis on or 'all' " \
                       "for analysis on all days. ")
     while True:
-        day = input(input_message).strip()
-        if day.lower() in DAYS or day.lower() == 'all':
+        day = input(input_message).strip().lower()
+        if day in DAYS or day.lower() == 'all':
             filter = "all days" if day.lower() == "all" else day.title()
             print(f'\nOkay! You want analysis for {filter}.\n')
             break
