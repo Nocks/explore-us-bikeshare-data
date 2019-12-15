@@ -41,8 +41,8 @@ def get_filters():
                      "for analysis on all months. ")
     while True:
         month = input(input_message).strip().lower()
-        if month in MONTHS or month.lower() == 'all':
-            filter = "all months" if month.lower() == "all" else month.title()
+        if month in MONTHS or month == 'all':
+            filter = "all months" if month == "all" else month.title()
             print(f'\nOkay! You want analysis for {filter}.\n')
             break
         else:
@@ -56,8 +56,8 @@ def get_filters():
                       "for analysis on all days. ")
     while True:
         day = input(input_message).strip().lower()
-        if day in DAYS or day.lower() == 'all':
-            filter = "all days" if day.lower() == "all" else day.title()
+        if day in DAYS or day == 'all':
+            filter = "all days" if day == "all" else day.title()
             print(f'\nOkay! You want analysis for {filter}.\n')
             break
         else:
