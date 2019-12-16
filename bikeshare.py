@@ -249,6 +249,7 @@ def user_birth_year_details(df):
 
 
 def display_raw_data(df):
+    """Show user raw data"""
 
     start_location = 0
     end_location = 0
@@ -260,7 +261,7 @@ def display_raw_data(df):
         start_location, end_location, raw_data_current_len, no_more_data
     ):
         """
-        Show raw data based on the start_location, end_location, and
+        Process raw data based on the start_location, end_location, and
         raw_data_current_len
         """
         # Check to current length of the dataframe is not less than 5
@@ -284,8 +285,6 @@ def display_raw_data(df):
 
     subsequent_request_message = "\nWould you like to see the next five " \
      + "(5) raw data? Enter yes or no. "
-
-    print("Length of the DATAFRAME " + str(raw_data_current_len))
 
     # keep asking for the right input ('yes' or 'no') until provide
     while True:
