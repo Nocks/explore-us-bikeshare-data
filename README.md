@@ -25,3 +25,8 @@ I learned about bike share use in Chicago, New York City, and Washington by comp
 - counts of each user type
 - counts of each gender (only available for NYC and Chicago)
 - earliest, most recent, most common year of birth (only available for NYC and Chicago)
+
+### 5 Display raw data to the user
+- Display raw data to the user, upon their request.
+- Ask if user wants to see more, and display the next 5 rows.
+- Keep doing the above till user says no.
