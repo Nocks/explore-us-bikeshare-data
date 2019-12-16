@@ -8,23 +8,23 @@ In this project, I wrote Python code to import US bike share data and answered i
 I learned about bike share use in Chicago, New York City, and Washington by computing a variety of descriptive statistics. In this project, wrote code to provide the following information:
 
 ### 1 Popular times of travel (i.e., occurs most often in the start time)
-- most common month
-- most common day of week
-- most common hour of day
+- Most common month
+- Most common day of week
+- Most common hour of day
 
 ### 2 Popular stations and trip
-- most common start station
-- most common end station
-- most common trip from start to end (i.e., most frequent combination of start station and end station)
+- Most common start station
+- Most common end station
+- Most common trip from start to end (i.e., most frequent combination of start station and end station)
 
 ### 3 Trip duration
-- total travel time
-- average travel time
+- Total travel time
+- Average travel time
 
 ### 4 User info
-- counts of each user type
-- counts of each gender (only available for NYC and Chicago)
-- earliest, most recent, most common year of birth (only available for NYC and Chicago)
+- Counts of each user type
+- Counts of each gender (only available for NYC and Chicago)
+- Earliest, most recent, most common year of birth (only available for NYC and Chicago)
 
 ### 5 Display raw data to the user
 - Display raw data to the user, upon their request.
