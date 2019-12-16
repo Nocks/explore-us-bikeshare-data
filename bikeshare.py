@@ -3,6 +3,8 @@ import time
 import pandas as pd
 import numpy as np
 
+from pudb import set_trace
+
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
@@ -246,6 +248,76 @@ def user_birth_year_details(df):
     print(earliest_birth_year, "is the most earliest birth year.")
 
 
+def display_raw_data(df):
+
+    start_location = 0
+    end_location = 0
+    request_counter = 0
+    raw_data_current_len = len(df)
+    no_more_data = False
+
+    def process_raw_data(
+        start_location, end_location, raw_data_current_len, no_more_data
+    ):
+        """
+        Show raw data based on the start_location, end_location, and
+        raw_data_current_len
+        """
+        # Check to current length of the dataframe is not less than 5
+        if raw_data_current_len >= 5:
+            raw_data = df[start_location:end_location]
+            # Decrease current length of the dataframe by 5
+            raw_data_current_len -= 5
+        else:
+            # If current length of the dataframe is less than 5,
+            # show everything from the current start_location based on when
+            # user has view data up to
+            raw_data = df[start_location:]
+            no_more_data = True
+
+        print("\n" + str(raw_data) + "\n")
+        return raw_data_current_len, no_more_data
+
+
+    intial_request_message = "\nWould you like to see the first five (5) " \
+    + "raw data? Enter yes or no. "
+
+    subsequent_request_message = "\nWould you like to see the next five " \
+     + "(5) raw data? Enter yes or no. "
+
+    print("Length of the DATAFRAME " + str(raw_data_current_len))
+
+    # keep asking for the right input ('yes' or 'no') until provide
+    while True:
+        start_location = end_location
+        end_location += 5
+
+        if request_counter == 0:
+            raw_data_request = input(
+                f"{intial_request_message}"
+            ).strip().lower()
+        else:
+            raw_data_request = input(
+                f"{subsequent_request_message}"
+            ).strip().lower()
+
+        if raw_data_request == "yes":
+            # This will make subsequent_request_message be presented to user
+            request_counter += 1
+
+            if no_more_data:
+                print("\nSorry! There isn't any more data to show.\n")
+                break
+            else:
+                raw_data_current_len, no_more_data = process_raw_data(
+                    start_location, end_location,
+                    raw_data_current_len, no_more_data
+                )
+
+        elif raw_data_request == "no":
+            break
+
+
 def main():
     while True:
         city, month, day = get_filters()
@@ -255,8 +327,9 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df, city)
+        display_raw_data(df)
 
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
+        restart = input('\nWould you like to restart? Enter yes or no. ')
         if restart.lower() != 'yes':
             break
 
